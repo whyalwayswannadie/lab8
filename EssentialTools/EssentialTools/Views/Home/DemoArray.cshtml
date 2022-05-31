@@ -1,0 +1,26 @@
+﻿@model EssentialTools.Models.Product[]
+
+@{
+    ViewBag.Title = "DemoArray";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@if (Model.Length > 0)
+{
+    <table>
+        <thead><tr><th>Продукт</th><th>Цена</th></tr></thead>
+        <tbody>
+            @foreach (EssentialTools.Models.Product p in Model)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td style=" padding-left: 30px">$@p.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>Нет данных о товарах</h2>
+}

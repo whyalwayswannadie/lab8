@@ -1,0 +1,33 @@
+﻿@model Razor.Models.Product
+
+@{
+    ViewBag.Title = "DemoExpression";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<table>
+    <thead>
+        <tr><th>Свойство</th><th>Значение</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Название</td><td>@Model.Name</td></tr>
+        <tr><td>Цена</td><td>@Model.Price</td></tr>
+        <tr>
+            <td>В наличии</td>
+            <td style="color:mediumblue;">
+                @switch ((int)ViewBag.ProductCount)
+                {
+                    case 0:
+                        @:Нет в наличии
+                        break;
+                    case 1:
+                        <b>Мало осталось (@ViewBag.ProductCount)</b>
+                        break;
+                    default:
+                        @ViewBag.ProductCount
+                        break;
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
